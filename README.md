@@ -4,7 +4,7 @@ Artsdata Finder
 
 This webpage demonstrates a simple use of the Artsdata API.
 
-This demo is built with plain javascript and html/css. No frameworks or package managers.
+This demo is built with plain javascript and html/css, and Bootstrap for CSS styling.
 
 To install
 ==========
