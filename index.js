@@ -15,7 +15,7 @@ async function searchOrgs(query) {
 
   const main = document.querySelector("main");
   const api = "https://api.artsdata.ca/recon";
-  const payload = { query: query, type: "schema:Organization" };
+  const payload = { query: query };
   const urlParams = new URLSearchParams(payload);
   const url = `${api}?${urlParams}`;
 
@@ -26,9 +26,12 @@ async function searchOrgs(query) {
   const displayQuery = document.querySelector("query");
   displayQuery.innerHTML = "Results for " + query[0].toUpperCase() + query.substring(1) + "...";
   json.result.forEach((org) => {
-    const el = document.createElement("org-vignette");
-    el.org = org;
-    main.appendChild(el);
+    if (org.name.search(/error/i) == -1) {
+      const el = document.createElement("org-vignette");
+      el.org = org;
+      main.appendChild(el);
+    } 
+   
   });
 
   document.getElementById("buttonSpinner").classList.add("visually-hidden")
