@@ -24,14 +24,22 @@
             Enter the name of the organization you would like to search.
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button id="buttonSpinner" class="btn btn-primary visually-hidden" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Loading...
+        </button>
+        <button id="buttonReady" type="submit" class="btn btn-primary ">
+          Search
+       </button>
+
+     
       </form>
       <hr>
-      <h2>Search Results for <query></query></h2>
+      <h2><query></query></h2>
       
       <main></main>
 
-      http://api.artsdata.ca/events.json?frame=event_location&predicate=schema:organizer&object=adr:
+     <!-- http://api.artsdata.ca/events.json?frame=event_location&predicate=schema:organizer&object=adr: --> 
     </div>
 
    
