@@ -1,13 +1,11 @@
-import "./org-vignette.js";
+import "./entity-vignette.js";
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString) ;
 
-
-if (urlParams.get("org")) {
-  searchOrgs(urlParams.get("org"));
+if (urlParams.get("query")) {
+  searchOrgs(urlParams.get("query"));
 }
-
 
 async function searchOrgs(query) {
   document.getElementById("buttonSpinner").classList.remove("visually-hidden")
@@ -25,10 +23,10 @@ async function searchOrgs(query) {
   console.log(json);
   const displayQuery = document.querySelector("query");
   displayQuery.innerHTML = "Results for " + query[0].toUpperCase() + query.substring(1) + "...";
-  json.result.forEach((org) => {
-    if (org.name.search(/error/i) == -1 && org.name.search(/event .* property changed/i) == -1) {
-      const el = document.createElement("org-vignette");
-      el.org = org;
+  json.result.forEach((entity) => {
+    if (entity.name.search(/error/i) == -1 && entity.name.search(/event .* property changed/i) == -1) {
+      const el = document.createElement("entity-vignette");
+      el.entity = entity;
       main.appendChild(el);
     } 
    

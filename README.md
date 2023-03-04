@@ -1,8 +1,8 @@
 # artsdata-satellite-org-finder
-Artsdata Satellite Organization Finder
+Artsdata Finder
 ==========
 
-This website demonstrates a simple use of the Artsdata API to find upcoming events for an Organization.
+This webpage demonstrates a simple use of the Artsdata API.
 
 This demo is built with plain javascript and html/css. No frameworks or package managers.
 
