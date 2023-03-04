@@ -26,7 +26,7 @@ async function searchOrgs(query) {
   const displayQuery = document.querySelector("query");
   displayQuery.innerHTML = "Results for " + query[0].toUpperCase() + query.substring(1) + "...";
   json.result.forEach((org) => {
-    if (org.name.search(/error/i) == -1) {
+    if (org.name.search(/error/i) == -1 && org.name.search(/event .* property changed/i) == -1) {
       const el = document.createElement("org-vignette");
       el.org = org;
       main.appendChild(el);

@@ -3,12 +3,12 @@ class OrgVignette extends HTMLElement {
  
     this.innerHTML = `
       <div  class="list-group">
-      <a ${org.id[0] != "K" && org.type[0].name != "Event" ? "" : "href='http://kg.artsdata.ca/resource/" + encodeURIComponent(org.id) + "'"} class="${org.match && org.id[0] == "K" && "list-group-item-primary" } list-group-item list-group-item-action d-flex justify-content-between align-items-start">
+      <a ${org.type[0].name == "WebPage" || org.type[0].name == "Observation" ? "" : "href='http://kg.artsdata.ca/resource/" + encodeURIComponent(org.id) + "'"} class="${org.match && org.id[0] == "K" && "list-group-item-primary" } list-group-item list-group-item-action d-flex justify-content-between align-items-start">
       <div class="ms-2 me-auto">
       <div class="fw-bold">${encodeHTMLEntities(truncate(org.name))}</div>
-      ${org.type[0].name} ${org.description && " - " + encodeHTMLEntities(org.description)}  ${org.type[0].name == "WebPage"  ?   " - " + org.id.substr(4, 100) : ""}
+      ${org.type[0].name} ${org.description && " - " + encodeHTMLEntities(org.description)}  ${org.type[0].name == "WebPage" ?   " <span class='fw-lighter'>" + org.id.substr(4, 100) + "</span>": ""}
       </div>
-      <span class="badge bg-secondary rounded-pill">${org.id[0] == "K" ? org.id : ""}</span>
+      <span class="badge bg-secondary rounded-pill">${org.id[0] == "K" || org.type[0].name == "Concept" ? org.id : ""}</span>
       </a>
       </div>`;
   }
