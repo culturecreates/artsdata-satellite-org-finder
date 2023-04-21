@@ -5,9 +5,7 @@ class EntityVignette extends HTMLElement {
       <a ${
         entity.type[0].name == "WebPage" || entity.type[0].name == "Observation"
           ? ""
-          : "href='http://kg.artsdata.ca/resource/" +
-            encodeURIComponent(entity.id) +
-            "'"
+          : "href='#' onclick='followLink(\"" + encodeURIComponent(entity.id) + "\")'"
       } class="${
       entity.match && entity.id[0] == "K" && "list-group-item-primary"
     } list-group-item list-group-item-action d-flex justify-content-between align-items-start">
@@ -28,6 +26,8 @@ class EntityVignette extends HTMLElement {
       </div>`;
   }
 }
+
+
 
 function encodeHTMLEntities(rawStr) {
   return rawStr.replace(/[\u00A0-\u9999<>\&]/g, (i) => `&#${i.charCodeAt(0)};`);
