@@ -56,14 +56,15 @@
     <script src="index.js" type="module"></script>
 
     <script>
-    function followLink(e) {
-      if (new URLSearchParams(window.location.search).get("viewer")) {
-        window.location = "http://artsdata-satellite-viewer.s3-website.ca-central-1.amazonaws.com/?adid=" + e;
-      } else {
-        window.location = "http://kg.artsdata.ca/resource/" + e;
-       
+      function followLink(e) {
+        if (new URLSearchParams(window.location.search).get("viewer")) {
+          window.location =
+            "http://artsdata-satellite-viewer.s3-website.ca-central-1.amazonaws.com/?adid=" +
+            e;
+        } else {
+          window.location = "http://kg.artsdata.ca/resource/" + e;
+        }
       }
-    }
-  </script>
+    </script>
   </body>
 </html>
