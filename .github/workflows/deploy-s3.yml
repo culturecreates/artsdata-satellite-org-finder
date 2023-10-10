@@ -2,7 +2,7 @@ name: Deploy staging to S3
 on:
   push:
     branches:
-    - s3
+    - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
