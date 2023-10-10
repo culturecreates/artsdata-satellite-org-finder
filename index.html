@@ -57,10 +57,10 @@
 
     <script>
       function followLink(e) {
-        if (new URLSearchParams(window.location.search).get("viewer")) {
+        let viewerUrl = new URLSearchParams(window.location.search).get("viewer")
+        if (viewerUrl) {
           window.location =
-            "http://artsdata-satellite-viewer.s3-website.ca-central-1.amazonaws.com/?adid=" +
-            e;
+          viewerUrl + e;
         } else {
           window.location = "http://kg.artsdata.ca/resource/" + e;
         }
